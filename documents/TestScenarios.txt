@@ -1,0 +1,167 @@
+--------
+Project:
+--------
+Product         : SauceDemo e-Commerce Site
+baseURL         : https://www.saucedemo.com/
+
+
+------------
+Test Suites:
+------------
+• Test Suite-1-Q1:  Try login with ‘locked_out_user’ and verify the error message.
+
+• Test Suite-2-Q2:  Log in with ‘standard_user’. Then, from the hamburger menu, reset the App State. 
+                    Add any three items to the cart. Navigate to the final checkout page and verify the product name and total price. 
+                    Finish the purchase journey and verify the successful order message. Then, reset the App State again and log out.
+
+• Test Suite-3-Q3:  Login with performance_glitch_user and reset the App State. 
+                    Then filter by name (Z to A) and select the first product into the cart. 
+                    Then navigate up to the final checkout page and verify all the products' names and the total price. 
+                    Then finish the purchase journey and verify the successful order message. Then, reset the App State again and log out.
+
+
+-------------------------------------------------------------------------------------------------------
+Test Case Scenarios (TCS) of Test Suite-1-Q1: Login with ‘locked_out_user’ and verify the error message 
+-------------------------------------------------------------------------------------------------------
+o	TCS-Q1.1: User able to access the SauceDemo e-Commerce Site. 
+
+o	TCS-Q1.2: Validate user CAN NOT Login without giving credentials.
+    -   Fill the login form without giving credentials
+    -   Submit the form and verify user login
+
+o	TCS-Q1.3: Validate whether the users can login without giving username.
+    -   Fill the login form without giving user name
+    -   Submit the form and verify user login
+
+o	TCS-Q1.4: Validate whether the users can login without giving Password.
+    -   Fill the login form without giving password
+    -   Submit the form and verify user login
+    
+o	TCS-Q1.5: Validate whether the users can login using invalid credentials.
+    -   Fill the login form with invalid credentials
+    -   Submit the form and verify user login
+
+o	TCS-Q1.6: Login with ‘locked_out_user’ and verify the error message
+    -   Fill the login form using ‘locked_out_user’ and secret_sauce' password
+    -   Submit the form and verify the error message.
+-------------------------------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------------------------
+Test Case Scenarios (TCS) of Test Suite-2-Q2: Log in with ‘standard_user’, Add and Purchase any three product. 
+--------------------------------------------------------------------------------------------------------------
+o	TCS-Q2.1: Log in with ‘standard_user’. 
+    -   Access the SauceDemo e-Commerce Site.
+    -   Keyin ‘standard_user’ and 'secret_sauce' password in the login form.
+    -   Submit and Verify the user login
+
+o	TCS-Q2.2: Reset the App State.
+    -   Expand the 'Hamburger Menu'.
+    -   Trigger the 'Reset App State' Menu Option.
+    -   Collapse the 'Hamburger Menu'.
+
+o	TCS-Q2.3: Add any three items to the cart. 
+    -   Validate user is in the 'Inventory' page.
+    -   Get the name of all the available items.
+    -   Get the price of all the available items.
+    -   Select first three items from the list and Add to the cart .
+    -   Validate the cart icon banner shows three (3) items. 
+
+o	TCS-Q2.4: Navigate to the checkout page.
+    -   Click on the 'Cart' icon.
+    -   Verify user is in the 'Cart' page.
+    -   Verify that three items added to the cart.
+    -   Click on the 'Checkout' button to access Checkout info Page.
+
+o	TCS-Q2.5: Enter your credentials in Checkout Information page.
+    -   Verify user is in the 'Checkout information' page.
+    -   Verify user could not proceed with incomplete credentials
+    -   Keyin the ‘Checkout Information’ and submit the form.
+    -   Verify whether the 'Final Checkout' page is navigated.
+
+o	TCS-Q2.6: Verify that N items/products have been added to the cart.
+
+o	TCS-Q2.7: Verify that only the added product names are present in the cart.
+
+o	TCS-Q2.8: Verify that price of individual added product matches in the cart.
+
+o	TCS-Q2.9: Verify sum of individual added product price matches with cart total price.
+
+o	TCS-Q2.10: Finish the purchase journey and verify the successful order message.
+    -   Click on the 'Finish' button.
+    -   Verify user is in the 'Checkout Complete' page.
+    -   Verify the successful order completion message.
+
+o	TCS-Q2.11: Reset the App State and log out.
+    -   Expand the 'Hamburger Menu'.
+    -   Click on the 'Reset App State' Menu Option.
+    -   Click on the 'Logout' Menu Option.
+    -   Verify that the user has been logged out successfully.
+------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------------------------------
+Test Case Scenarios (TCS) of Test Suite-3-Q3: Log in with ‘performance_glitch_user’, Filter and Purchase a product. 
+-------------------------------------------------------------------------------------------------------------------
+o	TCS-Q3.1: Log in with ‘performance_glitch_user’. 
+    -   Access the SauceDemo e-Commerce Site.
+    -   Keyin ‘performance_glitch_user’ and 'secret_sauce' password in the login form.
+    -   Submit and Verify the user login
+    
+o	TCS-Q3.2: Reset the App State.
+    -   Expand the 'Hamburger Menu'.
+    -   Trigger the 'Reset App State' Menu Option.
+    -   Collapse the 'Hamburger Menu'.
+
+o	TCS-Q3.3: Filter/Sort the available products by name (Z to A).
+    -   Validate user is in the 'Inventory' page.
+    -   Get the name and price of all the available items before filter.
+    -   Click the Filter drop down and select 'Name (Z to A)' option. 
+    -   Get the name and price of all the available items after filter.
+    -   Verify that product list sorted in discending order alphabetically.
+
+o	TCS-Q3.4: Add the first product into the cart. 
+    -   Validate user is in the 'Inventory' page.
+    -   Get the name and price of all the available items after filter.
+    -   Select the first item from the list and Add to the cart .
+    -   Validate the cart icon banner shows one (1) items. 
+
+o	TCS-Q3.5: Navigate to the checkout page.
+    -   Click on the 'Cart' icon.
+    -   Validate user is in the 'Cart' page.
+    -   Verify that one item added to the cart.
+    -   Click on the 'Checkout' button.
+
+o	TCS-Q3.6: Enter your credentials in Checkout Information page.
+    -   Verify user is in the 'Checkout information' page.
+    -   Verify user could not proceed with incomplete credentials
+    -   Keyin the ‘Checkout Information’ and submit the form.
+    -   Verify whether the 'Final Checkout' page is navigated.
+
+o	TCS-Q3.7: Verify that N items/products have been added to the cart.
+
+o	TCS-Q3.8: Verify that only the added product names are present in the cart.
+
+o	TCS-Q3.9: Verify that price of individual added product matches in the cart.
+
+o	TCS-Q3.10: Verify sum of individual added product price matches with cart total price.
+
+o	TCS-Q3.11: Finish the purchase journey and verify the successful order message.
+    -   Click on the 'Finish' button.
+    -   Verify user is in the 'Checkout Complete' page.
+    -   Verify the successful order completion message.
+
+o	TCS-Q3.12: Reset the App State and log out.
+    -   Expand the 'Hamburger Menu'.
+    -   Click on the 'Reset App State' Menu Option.
+    -   Click on the 'Logout' Menu Option.
+    -   Verify that the user has been logged out successfully.
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+ 
+
+
+
+

@@ -1,0 +1,15 @@
+
+# Allure report
+/allure-report/
+/allure-results/
+# Playwright-related
+/playwright-report/
+/test-results/
+# Node.js
+node_modules/
+# Playwright
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+# Log files
+*.log

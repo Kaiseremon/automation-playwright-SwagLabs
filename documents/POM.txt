@@ -1,0 +1,206 @@
+------------
+POM OBJECTS:
+------------
+
+----------------------
+1. Login/Landing Page:
+----------------------
+Verification:
+    -   URL                 :   https://www.saucedemo.com/
+    -   Identification      :   //div[@id='login_button_container']
+                            //div[@id='login_credentials']
+Controls:
+    -   input UserName      :   //input[@id='user-name' or data-test='username']
+                                locator('[data-test="username"]')
+    -   input Password      :   //input[@id='password' or data-test='password']
+                                locator('[data-test="password"]')
+    -   button Login        :   //input[@id='login-button' or @data-test='login-button']
+                                locator('[data-test="login-button"]')
+
+Error Handling/Div Error:
+    -   URL                 :   https://www.saucedemo.com/
+    -   button error        :   //h3[@data-test='error']/button[@data-test='error-button'] 
+    -   header Error        :   //h3[@data-test='error']
+        -   Empty User Name :   Text = 'Epic sadface: Username is required'
+                                //h3[@data-test='error' and contains(text(),'Username is required')]
+        -   Empty Password  :   Text = 'Epic sadface: Password is required'
+                                //h3[@data-test='error' and contains(text(),'Password is required')]
+        -   Invalid Data    :   Text = 'Epic sadface: Username and password do not match any user in this service'
+                                //h3[@data-test='error' and contains(text(),'Username and password do not match')]
+        -   locked_out_user :   Text = 'Epic sadface: Sorry, this user has been locked out.'
+                                //h3[@data-test='error' and contains(text(),'Sorry, this user has been locked out')]
+
+-   Successful Action:
+    -   URL                 :   https://www.saucedemo.com/inventory.html
+    -   Next Title Span     :   Products (//span[contains(text(),'Product') and @data-test='title'])
+
+-   UserName                :   locked_out_user
+                            standard_user
+                            performance_glitch_user
+
+-   Password                :   secret_sauce   
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------
+2. Inventory Page:
+------------------
+Verification:
+    -   URL                                     :   https://www.saucedemo.com/inventory.html
+    -   Title Span                              :   Products (//span[contains(text(),'Product') or @data-test='title'])
+    
+Controls:
+    -   current page title                      :   //span[@data-test='title'] -> Text = 'Products'   
+    -   Icon Cart                               :   //div[@id='shopping_cart_container']/a[@data-test='shopping-cart-link']
+                                                    //a[@data-test='shopping-cart-link']
+                                                    locator('[data-test="shopping-cart-link"]');
+    -   Dropdown Option: Name (Z to A)          :   page.locator('[data-test="product-sort-container"]').selectOption('za');
+                                                    //select[@data-test='product-sort-container']//option[@value='za']
+                                                    locator('[data-test="product-sort-container"]').selectOption('za');
+    -   No of Products                          :   //div[@data-test='inventory-list']/div[@data-test='inventory-item']
+                                                    locator('[data-test="inventory-list"]');
+    -   Name of Each Products                   :   //div[@data-test='inventory-list']/div[@data-test='inventory-item']//div[@data-test='inventory-item-name']
+                                                    //div[@data-test='inventory-item']//div[@data-test='inventory-item-name']
+    -   Label Corresponding Product Price       :   //div[@data-test='inventory-list']/div[@data-test='inventory-item']//div[@data-test='inventory-item-price']
+                                                    //div[@data-test='inventory-item']//div[@data-test='inventory-item-price']
+                                                    locator('[data-test="inventory-item-price"]').nth(N)
+    -   Button Add to cart Individual Product   :   //div[@data-test='inventory-list']/div[@data-test='inventory-item']//button[@id='add-to-cart-`sauce-labs-backpack`']
+                                                    //div[@data-test='inventory-item']//button[contains(text(),'Add to cart')]
+                                                    locator('[data-test="add-to-cart-sauce-labs-backpack"]');
+    
+-   Successful Action:
+    -   No of Product clicked/Added to cart
+    -   Icon Cart Before                        :   //div[@id='shopping_cart_container']//span[@data-test='shopping-cart-badge']
+    -   Icon Cart After                         :   //div[@id='shopping_cart_container']//span[@data-test='shopping-cart-badge']
+    -   URL after IconCart                      :   https://www.saucedemo.com/cart.html
+    -   Next page title                         :   //span[@data-test='title'] -> Text = 'Your Cart'
+    -   Title Span after IconCart               :   Your Cart - //span[@data-test='title' and contains(text(),'Your Cart')]
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+-------------
+3. Cart Page:
+-------------
+Verification:
+    -   URL                             :   https://www.saucedemo.com/cart.html
+    -   Title Span                      :   //span[@data-test='title' and contains(text(),'Your Cart')]
+                                            //span[@data-test='title'] -> Text = 'Your Cart'
+    
+Controls:
+    -   No of Added Products            :   //div[@data-test='cart-list']/div[@data-test='inventory-item']
+                                            page.locator('[data-test="cart-list"]');
+    -   Name of Each Added Product      :   //div[@data-test='inventory-item']//div[@data-test='inventory-item-name']
+    -   Price of Each Added Product     :   //div[@data-test='inventory-item']//div[@data-test='inventory-item-price']
+    -   Button Remove to delete product :   //div[@data-test='inventory-item']//button[@id='remove-sauce-labs-bolt-t-shirt']
+                                            //div[@data-test='inventory-item']//button[contains(text(), 'Remove')]
+    -   Button Continue Shopping        :   //button[@id='continue-shopping' or @data-test='continue-shopping']
+                                            locator('[data-test="continue-shopping"]');
+    -   Button Checkout                 :   //button[@id='checkout' or @data-test='checkout']
+                                            locator('[data-test="checkout"]');
+    
+-   Successful Action:
+    -   Compare the number of added product (Icon cart) with the number of items in the cart.
+    -   Compare the name of all the products added matches with the cart product list.
+    -   Compare the price of all the products added matches with the cart product list price.
+    -   URL after clicking checkout     :   https://www.saucedemo.com/checkout-step-one.html
+    -   Title after clicking checkout   :   Checkout: Your Information (//span[@data-test='title' and contains(text(),'Your Information')])
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+---------------------
+4. CheckoutInfo Page:
+---------------------
+Verification:
+    -   URL                         :   https://www.saucedemo.com/checkout-step-one.html
+    -   Title Span                  :   //span[@data-test='title' and contains(text(),'Your Information')]
+    
+Controls:
+    -   Input First Name            :   //input[@id='first-name' or @data-test='firstName']
+                                        page.locator('[data-test="firstName"]');  
+    -   Input Last Name             :   //input[@id='last-name' or @data-test='lastName']
+                                        page.locator('[data-test="lastName"]');
+    -   Input Postal Code           :   //input[@id='postal-code' or @data-test='postalCode']
+                                        page.locator('[data-test="postalCode"]');
+    -   Button Continue             :   //input[@id='continue' or @data-test='continue']
+                                        page.locator('[data-test="continue"]');
+    -   Button Cancel               :   //button[@id='cancel' or @data-test='cancel']
+                                        page.locator('[data-test="continue"]')
+    -   Button Error                :   //button[@data-test='error-button']
+                                        page.locator('[data-test="error-button"]');
+    -   Error Header                :   //h3[@data-test='error']
+                                        page.locator('[data-test="error"]');
+        -   Empty FirstName         :   Text - 'Error: First Name is required'
+        -   Empty LastName          :   Text - 'Error: Last Name is required'
+        -   Empty Post Code         :   Text - 'Error: Postal Code is required'
+                                                            
+-   Successful Action:
+    -   URL after checkout          :   https://www.saucedemo.com/checkout-step-two.html
+    -   Title Span after checkout   :   Checkout: Overview //span[@data-test='title' and contains(text(), 'Overview')]
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------
+5. CheckoutOverview Page:
+-------------------------
+Verification:
+    -   URL                                 :   https://www.saucedemo.com/checkout-step-two.html
+    -   Title Span                          :   //span[@data-test="title" and contains(text(), 'Checkout: Overview')]
+    
+Controls:
+    -   No of Added Products                :   //div[@data-test='cart-list']/div[@data-test='inventory-item'] {same}
+                                                page.locator('[data-test="cart-list"]');
+    -   Name of Each Added Product          :   //div[@data-test="inventory-item"]//div[@data-test='inventory-item-name'] {same}
+    -   Price of Each Added Product         :   //div[@data-test="inventory-item"]//div[@data-test='inventory-item-price'] {Same}
+    -   Sub-total/Item total                :   //div[@data-test='subtotal-label']
+                                                page.locator('[data-test="subtotal-label"]');
+    -   Total price                         :   //div[@data-test='total-label']
+                                                page.locator('[data-test="total-label"]');
+    -   Button Cancel                       :   //button[@id='cancel' or data-test='cancel']
+    -   Button Finish                       :   //button[@id='finish' or data-test='finish']
+                                                page.locator('[data-test="finish"]').click();
+-   Successful Action:
+    -   Compare the number of added product (Icon cart) with the number of items in the cart.
+    -   Compare the name of all the products added matches with the cart product list.
+    -   Compare the price of all the products added matches with the cart product list price.
+    -   Compare the sum of the price of all products with the item/Sub-total price. 
+    -   URL after Clicking Finish          :   https://www.saucedemo.com/checkout-complete.html
+    -   Title Span after Clicking Finish   :   Checkout: Complete! (//span[@data-test='title' and contains(text(),'Complete!')])
+    
+    -   Purchase Complete Status           :    //h2[@data-test='complete-header' and contains(text(),'Thank you')]
+                                                page.locator('[data-test="complete-header"]');
+                                                page.locator('[data-test="complete-text"]');
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+---------------
+6. Menu Object:
+---------------
+Controls:
+    -   Open Menu items                 :   //button[@id='react-burger-menu-btn']
+                                            page.getByRole('button', { name: 'Open Menu' }).click();
+    -   All Items Menu Item             :   //a[@id='inventory_sidebar_link' or @data-test='inventory-sidebar-link']
+    -   Logout Menu Item                :   //a[@id='logout_sidebar_link' or @data-test='logout-sidebar-link']
+                                            page.getByRole('button', { name: 'Open Menu' }).click();
+                                            page.locator('[data-test="logout-sidebar-link"]').click();
+    -   Reset App State                 :   //a[@id='reset_sidebar_link' or @data-test='reset-sidebar-link']
+                                            page.getByRole('button', { name: 'Open Menu' }).click();
+                                            page.locator('[data-test="reset-sidebar-link"]').click();
+    -   Close Menu Item                 :   //button[@id='react-burger-cross-btn']
+                                            page.getByRole('button', { name: 'Close Menu' }).click();    
+-   Successful Action:
+    -   URL After Clicking the Logout   :   https://www.saucedemo.com/
+    -   Identification  after Logout    :   //div[@id='login_button_container']
+                                            //div[@id='login_credentials']
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+

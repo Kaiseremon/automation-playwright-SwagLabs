@@ -29,7 +29,7 @@ This is a page object model (**POM**) based automation framework.
 
 Where **Playwright** is used as the automation tools and **Jest** is used to create the framework.
 
-The framework structure follows Test Driven Development (**TDD**) approach. The detailed test case scenarios can be found in the *'TestScenario.txt'* file inside the *'documents'* folder.
+The framework structure follows Test Driven Development (**TDD**) approach. The detailed test case scenarios can be found in the **'TestScenarios.txt'** file inside the *'documents'* folder.
  
 Besides, **Allure reporter** is used to get the report after completing the test execution. This helps to generate report and take screenshot when a step become failed.
 
@@ -57,24 +57,32 @@ In order to run this automation framework locally, please refer the following se
 
 ### 1. Clone the project:
 
-To get the project in your local machine, open a terminal and run the following git command:
+To get the project in your local machine, open the VS code terminal and run the following git command:
 
 ```bash
-  git clone https://github.com/Kaiseremon/swagLabs-automation.git
+git clone https://github.com/Kaiseremon/swagLabs-automation.git
 ```
 
-Then Go to the project directory and select the branch swagLabs-automation.
+Then go to the directory where the project downloaded and select the branch *swagLabs-automation*.
 
 ```bash
-  cd swagLabs-automation
+cd swagLabs-automation
 ```
+
+Once you are in the *swagLabs-automation* folder, run the command bellow to open the project in VS code file explorer:
+
+```bash
+code .
+```
+
+
 
 ### 2. Install Project Dependencies
 
-Install the necessary project dependencies as defined in the **package.json** file using npm:
+From the terminal, install the necessary project dependencies as defined in the **package.json** file using npm:
 
 ```bash
-  npm install
+npm install
 ```
 
 ### 3. Install Playwright Browsers:
@@ -82,7 +90,7 @@ Install the necessary project dependencies as defined in the **package.json** fi
 To install the Playwright **browser binaries** (Chromium, Firefox, and Webkit), run the following command:
 
 ```bash
-  npx playwright install
+npx playwright install
 ```
 
 After the successful installation, all the project configuration will be enlist inside the **playwright.config.js** file.
@@ -91,32 +99,32 @@ After the successful installation, all the project configuration will be enlist 
 
 ## E. Run the test case scenarios Locally:
 
-In order to run this automation testing framework locally, please refer the following sections carefully:
+In order to run this automation project locally in your VS code **terminal**, please refer the following sections carefully:
 
 ### 1. Running tests in the Same Browser Context (Serial Execution):
 
 **Test Suite-1-Q1:** To run all the test cases of this test suite in a same browser context serially, execute:
 
 ```bash
-  npm run Q1serial
+npm run Q1serial
 ```
 
 **Test Suite-2-Q2:** To run all the test cases of this test suite in a same browser context serially, execute:
 
 ```bash
-  npm run Q2serial
+npm run Q2serial
 ```
 
 **Test Suite-3-Q3:** to run all the test cases of this test suite in a same browser context serially, execute:
 
 ```bash
-  npm run Q3serial
+npm run Q3serial
 ```
 
 **Run All Sequentially:** To run ALL the test suites (Q1, Q2, Q3) sequentially in a same browser context, execute:
 
 ```bash
-  npm run serial
+npm run serial
 ```
 
 <br>
@@ -126,25 +134,25 @@ In order to run this automation testing framework locally, please refer the foll
 **Test Suite-1-Q1:** Run all the test cases of this test suite in individual browser context parallelly, execute:
 
 ```bash
-  npm run Q1parallel
+npm run Q1parallel
 ```
 
 **Test Suite-2-Q2:** Run all the test cases of this test suite in individual browser context parallelly, execute:
 
 ```bash
-  npm run Q2parallel
+npm run Q2parallel
 ```
 
 **Test Suite-3-Q3:** Run all the test cases of this test suite in individual browser context parallelly, execute:
 
 ```bash
-  npm run Q3parallel
+npm run Q3parallel
 ```
 
 **Run all Parallelly:** In order to run ALL the test suites in multiple browser context parallelly, execute:
 
 ```bash
-  npm run parallel
+npm run parallel
 ```
 
 ### 3. Running all tests in both Execution mode:
@@ -152,7 +160,7 @@ In order to run this automation testing framework locally, please refer the foll
 Run all the test cases of all the test suits available in this project both serial and parallel context, execute:
 
 ```bash
-  npm run test
+npm run test
 ```
 
 <br>
@@ -162,19 +170,19 @@ Run all the test cases of all the test suits available in this project both seri
 **Allure Reporter:** To generate and view ALLURE report after the test execution, run:
 
 ```bash
-  npm run reportAllure
+npm run reportAllure
 ```
 
 **HTML Reporter:** To generate the playwright default HTML report after the test execution, run:
 
 ```bash
-  npm run reportHTML
+npm run reportHTML
 ```
 
 In order to close the currently generated report in your browser, run:
 
 ```bash
-  ctrl+c
+ctrl+c
 ```
 
 <br>
@@ -259,5 +267,5 @@ In order to close the currently generated report in your browser, run:
 
 ## Author
 
-[@Kaiseremon](https://github.com/Kaiseremon)
+- [@Kaiseremon](https://github.com/Kaiseremon)
 

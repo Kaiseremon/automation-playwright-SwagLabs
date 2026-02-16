@@ -159,7 +159,7 @@ npm run parallel
 To run all the test suites (Q1, Q2, Q3) at once in the same browser context sequentially, execute:
 
 ```bash
-npm run test
+npm run shared
 ```
 
 <br>

@@ -2,15 +2,19 @@ import { test, expect } from "@playwright/test";
 import { LoginActions } from "../../login/loginActions";
 /**@type {LoginActions}*/
 let loginAction;
+import { MenuActions } from "../../menu/menuActions";
+/**@type {MenuActions}*/
+let menuAction;
 
 const username = "locked_out_user";
 const password = "secret_sauce";
 const expectedErrorMessage = "Epic sadface: Sorry, this user has been locked out.";
 
 test.describe("Test Suite-1-Q1:Login with ‘locked_out_user’ & verify error message", ()=>{
-
+    let userNames, i;
     test.beforeEach(async({ page }) => {        
         loginAction = new LoginActions(page);
+        menuAction  = new MenuActions(page);
         await page.goto("/");
         await page.waitForURL("/", { timeout: 30000 });
     });
@@ -78,6 +82,25 @@ test.describe("Test Suite-1-Q1:Login with ‘locked_out_user’ & verify error m
             await loginAction.clickButtonError();
             expect(actualErrorMessage).toEqual(expectedErrorMessage);
         });
+    });
+
+    test("TCS-Q1.7: Login with all the available user names and verify user login", async({page})=>{
+        userNames = await loginAction.getUserName();
+        for (i = 0; i <= userNames.length-1; i++){
+            if (userNames[i] !== "locked_out_user") {
+                await test.step(`• Step-${i+1}: Fill and submit login form using '${userNames[i]}'`, async ()=>{            
+                    await loginAction.enterUserName(userNames[i]);
+                    await loginAction.enterPassword(password);
+                    await loginAction.clickButtonLogin();
+                    //console.log(userNames[i]);
+                    await page.waitForURL("https://www.saucedemo.com/inventory.html", { timeout: 30000 });
+                    await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
+                    await menuAction.clickMenuOptions('logout');
+                    await page.goto("/");
+                    await page.waitForURL("/", { timeout: 30000 });
+                });
+            }
+        }
     });
 });
 

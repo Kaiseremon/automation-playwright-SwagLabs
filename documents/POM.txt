@@ -5,10 +5,8 @@ POM OBJECTS:
 ----------------------
 1. Login/Landing Page:
 ----------------------
-Verification:
-    -   URL                 :   https://www.saucedemo.com/
-    -   Identification      :   //div[@id='login_button_container']
-                            //div[@id='login_credentials']
+URL                         :   https://www.saucedemo.com/
+
 Controls:
     -   input UserName      :   //input[@id='user-name' or data-test='username']
                                 locator('[data-test="username"]')
@@ -16,8 +14,34 @@ Controls:
                                 locator('[data-test="password"]')
     -   button Login        :   //input[@id='login-button' or @data-test='login-button']
                                 locator('[data-test="login-button"]')
+    -   User name list      :   //div[@id ='login_credentials' or data-test='login-credentials']
+    
+    -   Password            :   secret_sauce
 
-Error Handling/Div Error:
+(1) username: standard_user : 
+    -   Successful Action   :   https://www.saucedemo.com/inventory.html
+                                //span[contains(text(),'Product') and @data-test='title']
+
+(2) username: problem_user  :
+    -   Successful Action   :   https://www.saucedemo.com/inventory.html
+                                //span[contains(text(),'Product') and @data-test='title']
+
+(3) username: performance_glitch_user:
+    -   Successful Action   :   https://www.saucedemo.com/inventory.html
+                                //span[contains(text(),'Product') and @data-test='title']
+
+(4) username: error_user    :
+    -   Successful Action   :   https://www.saucedemo.com/inventory.html
+                                //span[contains(text(),'Product') and @data-test='title']
+
+(5) username: visual_user   :
+    -   Successful Action   :   https://www.saucedemo.com/inventory.html
+                                //span[contains(text(),'Product') and @data-test='title']
+
+(6) username: locked_out_user:
+    -   Successful Action   :   https://www.saucedemo.com/
+                                //h3[contains(text(), 'Sorry, this user has been locked out.')]
+    -   Error Handling/Div Error:
     -   URL                 :   https://www.saucedemo.com/
     -   button error        :   //h3[@data-test='error']/button[@data-test='error-button'] 
     -   header Error        :   //h3[@data-test='error']
@@ -30,25 +54,15 @@ Error Handling/Div Error:
         -   locked_out_user :   Text = 'Epic sadface: Sorry, this user has been locked out.'
                                 //h3[@data-test='error' and contains(text(),'Sorry, this user has been locked out')]
 
--   Successful Action:
-    -   URL                 :   https://www.saucedemo.com/inventory.html
-    -   Next Title Span     :   Products (//span[contains(text(),'Product') and @data-test='title'])
-
--   UserName                :   locked_out_user
-                            standard_user
-                            performance_glitch_user
-
--   Password                :   secret_sauce   
 --------------------------------------------------------------------------------------------------------------------------------
 
 
 ------------------
 2. Inventory Page:
 ------------------
-Verification:
-    -   URL                                     :   https://www.saucedemo.com/inventory.html
-    -   Title Span                              :   Products (//span[contains(text(),'Product') or @data-test='title'])
-    
+URL                                             :   https://www.saucedemo.com/inventory.html
+Title Span                                      :   Products (//span[contains(text(),'Product') or @data-test='title'])
+
 Controls:
     -   current page title                      :   //span[@data-test='title'] -> Text = 'Products'   
     -   Icon Cart                               :   //div[@id='shopping_cart_container']/a[@data-test='shopping-cart-link']
@@ -77,15 +91,13 @@ Controls:
     -   Title Span after IconCart               :   Your Cart - //span[@data-test='title' and contains(text(),'Your Cart')]
 --------------------------------------------------------------------------------------------------------------------------------
 
-
 -------------
 3. Cart Page:
 -------------
-Verification:
-    -   URL                             :   https://www.saucedemo.com/cart.html
-    -   Title Span                      :   //span[@data-test='title' and contains(text(),'Your Cart')]
+URL                                     :   https://www.saucedemo.com/cart.html
+Title Span                              :   //span[@data-test='title' and contains(text(),'Your Cart')]
                                             //span[@data-test='title'] -> Text = 'Your Cart'
-    
+
 Controls:
     -   No of Added Products            :   //div[@data-test='cart-list']/div[@data-test='inventory-item']
                                             page.locator('[data-test="cart-list"]');
@@ -104,15 +116,15 @@ Controls:
     -   Compare the price of all the products added matches with the cart product list price.
     -   URL after clicking checkout     :   https://www.saucedemo.com/checkout-step-one.html
     -   Title after clicking checkout   :   Checkout: Your Information (//span[@data-test='title' and contains(text(),'Your Information')])
+
 --------------------------------------------------------------------------------------------------------------------------------
 
 
 ---------------------
 4. CheckoutInfo Page:
 ---------------------
-Verification:
-    -   URL                         :   https://www.saucedemo.com/checkout-step-one.html
-    -   Title Span                  :   //span[@data-test='title' and contains(text(),'Your Information')]
+URL                                 :   https://www.saucedemo.com/checkout-step-one.html
+Title Span                          :   //span[@data-test='title' and contains(text(),'Your Information')]
     
 Controls:
     -   Input First Name            :   //input[@id='first-name' or @data-test='firstName']
@@ -142,9 +154,8 @@ Controls:
 -------------------------
 5. CheckoutOverview Page:
 -------------------------
-Verification:
-    -   URL                                 :   https://www.saucedemo.com/checkout-step-two.html
-    -   Title Span                          :   //span[@data-test="title" and contains(text(), 'Checkout: Overview')]
+URL                                         :   https://www.saucedemo.com/checkout-step-two.html
+Title Span                                  :   //span[@data-test="title" and contains(text(), 'Checkout: Overview')]
     
 Controls:
     -   No of Added Products                :   //div[@data-test='cart-list']/div[@data-test='inventory-item'] {same}
@@ -169,6 +180,7 @@ Controls:
     -   Purchase Complete Status           :    //h2[@data-test='complete-header' and contains(text(),'Thank you')]
                                                 page.locator('[data-test="complete-header"]');
                                                 page.locator('[data-test="complete-text"]');
+
 --------------------------------------------------------------------------------------------------------------------------------
 
 

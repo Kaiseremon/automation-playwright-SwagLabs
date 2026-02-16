@@ -1,6 +1,7 @@
 import { LoginObjects } from "./loginObjects";
 
 class LoginActions{
+    
     constructor(page){
         this.page = page;
         /** @type {LoginObjects} */
@@ -11,6 +12,13 @@ class LoginActions{
         await this.loginLocator.containerLogin.waitFor({ state: 'attached'});
         await this.loginLocator.containerLogin.waitFor({ state: 'visible' });
         return await this.loginLocator.containerLogin.isVisible();
+    }
+    async getUserName(){
+        await this.loginLocator.containerUserName.waitFor({ state: 'attached'});
+        await this.loginLocator.containerUserName.waitFor({ state: 'visible'});
+        const rawText = await this.loginLocator.containerUserName.innerText();
+        const usernames = rawText.split("\n").slice(1).map(x => x.trim()).filter(x => x !== "");
+        return usernames;
     }
     async enterUserName(enterText){
         await this.loginLocator.inputUserName.waitFor({ state: 'attached'});

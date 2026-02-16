@@ -1,6 +1,7 @@
 import { CheckoutObjects } from "./checkoutObjects";
 
 class CheckoutActions{
+    
     constructor(page){
         this.page = page;
         /** @type {CheckoutObjects} */

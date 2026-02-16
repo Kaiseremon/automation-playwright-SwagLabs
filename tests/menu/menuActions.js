@@ -1,6 +1,7 @@
 import { MenuObjects } from "./menuObjects";
 
 class MenuActions{
+    
     constructor(page){
         this.page = page;
         /** @type {MenuObjects} */

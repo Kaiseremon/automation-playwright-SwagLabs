@@ -8,7 +8,7 @@ baseURL         : https://www.saucedemo.com/
 ------------
 Test Suites:
 ------------
-• Test Suite-1-Q1:  Try login with ‘locked_out_user’ and verify the error message.
+• Test Suite-1-Q1:  Try login with all the user names and verify the user login.
 
 • Test Suite-2-Q2:  Log in with ‘standard_user’. Then, from the hamburger menu, reset the App State. 
                     Add any three items to the cart. Navigate to the final checkout page and verify the product name and total price. 
@@ -20,10 +20,11 @@ Test Suites:
                     Then finish the purchase journey and verify the successful order message. Then, reset the App State again and log out.
 
 
--------------------------------------------------------------------------------------------------------
-Test Case Scenarios (TCS) of Test Suite-1-Q1: Login with ‘locked_out_user’ and verify the error message 
--------------------------------------------------------------------------------------------------------
-o	TCS-Q1.1: User able to access the SauceDemo e-Commerce Site. 
+-----------------------------------------------------------------------------------------------------
+Test Case Scenarios (TCS) of Test Suite-1-Q1: Login with all the user names and verify the user login 
+-----------------------------------------------------------------------------------------------------
+o	TCS-Q1.1: User able to access the SauceDemo e-Commerce Site.
+    -   Get the list of all tge available usernames
 
 o	TCS-Q1.2: Validate user CAN NOT Login without giving credentials.
     -   Fill the login form without giving credentials
@@ -42,8 +43,30 @@ o	TCS-Q1.5: Validate whether the users can login using invalid credentials.
     -   Submit the form and verify user login
 
 o	TCS-Q1.6: Login with ‘locked_out_user’ and verify the error message
-    -   Fill the login form using ‘locked_out_user’ and secret_sauce' password
+    -   Fill the login form using ‘locked_out_user’ and 'secret_sauce' password
     -   Submit the form and verify the error message.
+
+o	TCS-Q1.7: Login with all the available user names and verify user login
+    
+    -   Fill and submit the login form using ‘standard_user’.
+    -   Verify the successful user login.
+    -   Verify the successful user logout.
+
+    -   Fill and submit the login form using 'problem_user'.
+    -   Verify the successful user login.
+    -   Verify the successful user logout.
+
+    -   Fill and submit the login form using 'performance_glitch_user'.
+    -   Verify the successful user login.
+    -   Verify the successful user logout.
+
+    -   Fill and submit the login form using 'error_user'.
+    -   Verify the successful user login.
+    -   Verify the successful user logout.
+    
+    -   Fill and submit the login form using 'visual_user'.
+    -   Verify the successful user login.
+    -   Verify the successful user logout.
 -------------------------------------------------------------------------------------------------------------
 
 

@@ -4,16 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --headed",
+    "test"        : "npx playwright test --headed",
     "clean:allure": "rimraf allure-results allure-report",
+
     "Q1serial"    : "npm run clean:allure && npx playwright test tests/specs/sameContext/Q1.serial.spec.js --headed",
     "Q2serial"    : "npm run clean:allure && npx playwright test tests/specs/sameContext/Q2.serial.spec.js --headed",
     "Q3serial"    : "npm run clean:allure && npx playwright test tests/specs/sameContext/Q3.serial.spec.js --headed",
-    "serial"      : "npm run clean:allure && npx playwright test tests/specs/sameContext/ --headed",
+    
     "Q1parallel"  : "npm run clean:allure && npx playwright test tests/specs/multipleContext/Q1.parallel.spec.js --headed",
     "Q2parallel"  : "npm run clean:allure && npx playwright test tests/specs/multipleContext/Q2.parallel.spec.js --headed",
     "Q3parallel"  : "npm run clean:allure && npx playwright test tests/specs/multipleContext/Q3.parallel.spec.js --headed",
+
+    "serial"      : "npm run clean:allure && npx playwright test tests/specs/sameContext/ --headed",
     "parallel"    : "npm run clean:allure && npx playwright test tests/specs/multipleContext/ --headed",
+    "shared"      : "npm run clean:allure && npx playwright test tests/specs/sharedContext/ --headed",
+    
     "reportHTML"  : "npx playwright show-report",
     "reportAllure": "npx allure generate ./allure-results --clean -o ./allure-report && npx allure open ./allure-report"
   },

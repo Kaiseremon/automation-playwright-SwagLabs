@@ -1,6 +1,7 @@
 import { CartObjects } from "./cartObjects";
 
 class CartActions{
+    
     constructor(page){
         this.page = page;
         /** @type {CartObjects} */

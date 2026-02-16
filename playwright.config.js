@@ -12,7 +12,12 @@ export default defineConfig({
     baseURL   : 'https://www.saucedemo.com/',
     trace     : 'on-first-retry',
     screenshot: "only-on-failure", 
-    video     : "retain-on-failure"
+    video     : "retain-on-failure",
+    headless: true,
+    viewport: null,
+    launchOptions: {
+      args: ['--start-maximized'],
+    },
   },
   fullyParallel: true,
   //workers: process.env.CI ? 1 : undefined,

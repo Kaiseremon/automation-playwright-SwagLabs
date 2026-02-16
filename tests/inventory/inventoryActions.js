@@ -1,6 +1,7 @@
 import { InventoryObjects } from "./inventoryObjects";
 
 class InventoryActions{
+    
     constructor(page){
         this.page = page;
         /** @type {InventoryObjects} */
